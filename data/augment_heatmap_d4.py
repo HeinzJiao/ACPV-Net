@@ -102,23 +102,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     process_folder(args.input_dir, args.output_dir, args.transforms)
-
-    """
-    python ./data/augment_heatmap_d4.py \
-        --input_dir ./data/deventer_512/train/junctions_unk_clean_merged_heatmaps_sigma-3 \
-        --output_dir ./data/deventer_512/train/heatmap_unk_clean_merged_augmented
-        
-    heatmap_augmented/
-    ├── rot0/
-    ├── rot90/
-    ├── rot180/
-    ├── rot270/
-    ├── flip_h/
-    ├── flip_v/
-    ├── flip_diag/
-    └── flip_anti_diag/
-
-    python ./scripts/augment_heatmap_d4.py \
-        --input_dir ./dataset/train/vertex_heatmaps_sigma-3_augmented/rot0 \
-        --output_dir ./dataset/train/vertex_heatmaps_sigma-3_augmented
-    """
