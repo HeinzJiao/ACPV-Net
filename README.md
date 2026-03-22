@@ -7,8 +7,6 @@ CVPR 2026
 
 This repository is currently being updated and will be finalized soon.
 
-# ACPV-Net
-
 ## Environment Setup
 
 The installation path below reflects the setup that was actually validated on the server for the current mainline ACPV-Net codebase.
