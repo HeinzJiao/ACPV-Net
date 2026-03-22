@@ -13,7 +13,7 @@ This repository is currently being updated and will be finalized soon.
 2. Install the VMamba selective scan kernel
 3. Run ACPV-Net with `PYTHONPATH` pointing to the repository root
 
-### 1. Create the conda environment
+#### 1. Create the conda environment
 
 Linux:
 
@@ -31,7 +31,7 @@ conda activate acpv-net-vmamba
 
 This environment is designed around the same idea used by VMamba: start from a VMamba-compatible PyTorch/CUDA stack, then add ACPV-Net-specific dependencies such as `mmcv`, `omegaconf`, `pytorch-lightning`, `pycocotools`, `Shapely`, and the latent diffusion utilities.
 
-### 2. Install `selective_scan`
+#### 2. Install `selective_scan`
 
 This step is important. For the VMamba backbone used in this project, the `selective_scan` kernel should be installed explicitly.
 
@@ -43,7 +43,7 @@ cd ../..
 
 If this step is skipped, the VMamba backbone may fall back to slower or incomplete execution paths, and in practice the backbone setup is often not reliable enough for normal project use.
 
-### 3. Use the repository root as `PYTHONPATH`
+#### 3. Use the repository root as `PYTHONPATH`
 
 ```bash
 export PYTHONPATH=$PWD:$PYTHONPATH
