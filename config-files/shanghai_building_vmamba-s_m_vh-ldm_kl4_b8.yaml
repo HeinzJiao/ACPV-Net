@@ -1,0 +1,111 @@
+SOLVER:
+  IMS_PER_BATCH: 8
+  CHECKPOINT_PERIOD: 5000  # iter
+
+  # lr scheduler (v1)
+  BASE_LR: 6e-5
+  BACKBONE_LR_MULT: 1.0
+  LR_SCHEDULER: 'linear_poly'  # linear warmup + PolyLR
+  WARMUP_ITERS: 1500
+  TOTAL_ITERS: 160000
+  POLY_POWER: 1.0
+  ETA_MIN: 0.0
+
+  # optimizer
+  OPTIMIZER: "ADAMW"
+  BETAS: (0.9, 0.999)
+  WEIGHT_DECAY: 0.01
+
+# EMA
+USE_EMA: True
+EMA_DECAY: 0.9999
+EMA_USE_NUM_UPDATES: True
+
+DATALOADER:
+  NUM_WORKERS: 12
+
+DATASETS:
+  IMAGE:
+    PIXEL_MEAN: [109.730, 103.832, 98.681]
+    PIXEL_STD: [22.275, 22.124, 23.229]
+    TO_255: True
+    HEIGHT: 256
+    WIDTH: 256
+  TARGET:
+    HEIGHT: 64
+    WIDTH: 64
+  ORIGIN:
+    HEIGHT: 256
+    WIDTH: 256
+  TRAIN: ("shanghai_building_train_with_latent_vertex_heatmap",)
+  VAL: ("shanghai_building_test_with_latent_vertex_heatmap",)
+  TEST: ("shanghai_building_test_with_latent_vertex_heatmap",)
+  FACTORY: 'LatentVertexHeatmapTrainDataset'
+  NUM_CLASSES: 2                                   # Keep 2 classes: background + building
+  AUGMENTATIONS: ['rot0', 'rot90', 'rot180', 'rot270', 'flip_h', 'flip_v', 'flip_diag', 'flip_anti_diag']
+
+MODEL:
+  NAME: "VMamba"
+  BACKBONE:
+    OUT_INDICES: [ 0, 1, 2, 3 ]
+    PRETRAINED: "./pretrained/vssm_small_0229_ckpt_epoch_222.pth"
+    DIMS: 96
+    DEPTHS: [ 2, 2, 15, 2 ]
+    SSM_D_STATE: 1
+    SSM_DT_RANK: "auto"
+    SSM_RATIO: 2.0
+    SSM_CONV: 3
+    SSM_CONV_BIAS: False
+    FORWARD_TYPE: "v05_noz"
+    MLP_RATIO: 4.0
+    DOWNSAMPLE_VERSION: "v3"
+    PATCHEMBED_VERSION: "v2"
+    DROP_PATH_RATE: 0.3
+    NORM_LAYER: "ln2d"
+
+  DECODE_HEAD:
+    IN_CHANNELS: [ 96, 192, 384, 768 ]
+    IN_INDEX: [ 0, 1, 2, 3 ]
+    POOL_SCALES: [ 1, 2, 3, 6 ]
+    CHANNELS: 512
+    DROPOUT_RATIO: 0.1
+    NUM_CLASSES: 2             # Changed from 7 to 2: background + building
+    ALIGN_CORNERS: False
+
+  AUX_HEAD:
+    IN_CHANNELS: 384
+    IN_INDEX: 2
+    CHANNELS: 256
+    NUM_CONVS: 1
+    CONCAT_INPUT: False
+    DROPOUT_RATIO: 0.1
+    NUM_CLASSES: 2             # Changed from 7 to 2
+    ALIGN_CORNERS: False
+
+  unet_config:
+    target: topomapper.modules.diffusionmodules.openaimodel.UNetModel
+    params:
+      image_size: 64
+      out_channels: 3
+
+      in_channels: 640  # concat
+      model_channels: 128
+      attention_resolutions:
+        - 8  
+        - 4  
+      num_res_blocks: 1
+      channel_mult:
+        - 1
+        - 2
+        - 2
+
+      num_head_channels: 32
+
+  conditioning_key: "concat"
+
+  LOSS_WEIGHTS:
+    loss_vertex_heatmap_l1: 10.0
+    loss_mask: 1.0
+    loss_mask_aux: 0.4
+
+OUTPUT_DIR: "./outputs/shanghai_building_vmamba-s_m_vh-ldm_kl4_b8"
