@@ -160,13 +160,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    """
-    Example:
-
-    python coco_to_vertex_heatmaps.py \
-    --ann_file ./dataset/annotations/train.json \
-    --image_dir ./dataset/images \
-    --save_dir ./dataset/train_vertex_heatmaps_sigma-3 \
-    --sigma 3
-    """
