@@ -285,17 +285,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    """
-    Usage (Example):
-    PYTHONPATH=./:$PYTHONPATH python latent_encoder_accelerated.py \
-    --config config-files/autoencoder_kl_f4.yaml \
-    --input ../../agricultural_parcel_extraction/AI4SmallFarms_split_0.05/train_vertex_heatmaps_sigma-3 \
-    --output_dir ../../agricultural_parcel_extraction/AI4SmallFarms_split_0.05/train_vertex_heatmaps_sigma-3_latent \
-    --type heatmap \
-    --batch-size 4 \
-    --num-workers 8 \
-    --scale-samples 128 \
-    --reconstruct \
-    --save-z-vis
-    """
