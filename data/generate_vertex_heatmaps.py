@@ -88,25 +88,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    """
-    python generate_junction_heatmaps.py \
-        --json_dir ./deventer_512/train/junctions \
-        --save_dir ./deventer_512/train/junction_heatmaps_sigma-3 \
-        --sigma 3
-        
-    python ./data/generate_junction_heatmaps.py \
-        --json_dir ./data/deventer_512/poly_gt_global_boundary/train/d-2_angle_tol_deg-10-5-2_corner_eps-2_min_sep-3_len_px-10-6_v5/final_vertices \
-        --save_dir ./data/deventer_512/poly_gt_global_boundary/train/d-2_angle_tol_deg-10-5-2_corner_eps-2_min_sep-3_len_px-10-6_v5/final_vertices_heatmaps_sigma-3 \
-        --sigma 3
-
-    python ./data/generate_vertex_heatmaps.py \
-        --json_dir ./data/deventer_512/train/junctions_unk_clean_merged \
-        --save_dir ./data/deventer_512/train/junctions_unk_clean_merged_heatmaps_sigma-3 \
-        --sigma 3
-
-    # AI4SmallFarms
-    python ./data/generate_vertex_heatmaps.py \
-        --json_dir ../../agricultural_parcel_extraction/AI4SmallFarms_split_0.05/train_vertices \
-        --save_dir ../../agricultural_parcel_extraction/AI4SmallFarms_split_0.05/train_vertex_heatmaps_sigma-3 \
-        --sigma 3
-    """
