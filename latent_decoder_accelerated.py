@@ -229,15 +229,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    """
-    Example:
-    python scripts/latent_decoder_accelerated.py \
-      --config configs/autoencoder_kl_f4_decode.yaml \
-      --latent_dir ../../data/xxx/z \
-      --output_dir ../../data/xxx/xrec \
-      --npy_dir ../../data/xxx/xrec_npy \
-      --scale_factor 0.18215 \
-      --batch-size 16 \
-      --num-workers 8
-    """
