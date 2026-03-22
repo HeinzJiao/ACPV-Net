@@ -144,10 +144,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    """
-    python ./data/convert_mask_01_0255.py \
-    --root ../AI4SmallFarms/train/edge_masks_w2_0255 \
-    --out_root ../AI4SmallFarms/train/masks \
-    --mode 0255_to_01
-    """
