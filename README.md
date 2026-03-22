@@ -19,7 +19,7 @@ Linux:
 
 ```bash
 conda env create -f environment.yml
-conda activate acpv-net-vmamba
+conda activate acpv-net
 ```
 
 Windows PowerShell:
