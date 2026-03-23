@@ -62,17 +62,3 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
     visualize_heatmaps(args.input_dir, args.output_dir, mode='jet')
-
-    """
-    python ./tools/visualize_vertex_heatmaps.py \
-    --input_dir ./outputs/deventer_vmamba-small_512_v_h_vitpose_simpler_decoder_multisteplr_cf/80k/junction_prob_npy \
-    --output_dir ./outputs/deventer_vmamba-small_512_v_h_vitpose_simpler_decoder_multisteplr_cf/80k/junction_prob_npy_vis_jet
-    
-    python ./tools/visualize_vertex_heatmaps.py \
-    --input_dir ./data/deventer_512/poly_gt_global_boundary/train/d-2_angle_tol_deg-10-5-2_corner_eps-2_min_sep-3_len_px-10-6_v5/heatmap_augmented/flip_v \
-    --output_dir ./data/deventer_512/poly_gt_global_boundary/train/d-2_angle_tol_deg-10-5-2_corner_eps-2_min_sep-3_len_px-10-6_v5/heatmap_augmented/flip_v_vis_jet
-    
-    python ./tools/visualize_vertex_heatmaps.py \
-    --input_dir ../../agricultural_parcel_extraction/AI4SmallFarms_split_0.05/train_vertex_heatmaps_sigma-3 \
-    --output_dir ../../agricultural_parcel_extraction/AI4SmallFarms_split_0.05/train_vertex_heatmaps_sigma-3_vis_jet
-    """
