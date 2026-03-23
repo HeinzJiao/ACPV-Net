@@ -23,11 +23,10 @@ import json
 import argparse
 import numpy as np
 from polygonize_pslg_one_image import (
-    process_one_image_categories,
+    process_one_image_categories, flatten_to_xylist
 )
 from shapely.geometry import Polygon
 from tqdm import tqdm
-import time
 
 
 ID2NAME = {
@@ -312,9 +311,6 @@ def main():
     # ------------------------------------------------------------------
     seg_files = sorted([f for f in os.listdir(args.seg_dir) if f.endswith('.npy')])
 
-    total_time = 0.0
-    num_done = 0
-
     for f in tqdm(seg_files, desc=f"Polygonizing ({args.mode})"):
         name = os.path.splitext(f)[0]
         seg_path  = os.path.join(args.seg_dir, f)
@@ -333,8 +329,6 @@ def main():
             continue
 
         vis_subdir = os.path.join(args.vis_dir, name) if args.vis_dir else None
-
-        t0 = time.perf_counter()
 
         # --------------------------------------------------------------
         # Run polygonization
@@ -361,15 +355,6 @@ def main():
                 vis_scale=args.vis_scale,
                 dp_epsilon=args.ablation_dp_epsilon,
             )
-
-        t1 = time.perf_counter()
-        dt = t1 - t0
-        total_time += dt
-        num_done += 1
-
-        if num_done % 50 == 0:
-            fps = num_done / total_time
-            print(f"[FPS] {fps:.2f} img/s | avg {total_time/num_done:.3f} s/img")
 
         # --------------------------------------------------------------
         # COCO predictions (per-category)
@@ -407,13 +392,6 @@ def main():
                     "bbox": bbox,
                 }
                 per_cat_preds[cat].append(coco_obj)
-
-    if num_done > 0:
-        fps = num_done / total_time
-        avg_t = total_time / num_done
-        print(f"\n[Polygonization FPS] {fps:.2f} img/s")
-        print(f"[Avg time/image] {avg_t:.3f} s/img")
-        print(f"[Total images] {num_done}, [Total time] {total_time:.2f} s")
 
     # ------------------------------------------------------------------
     # Save COCO prediction json per category
