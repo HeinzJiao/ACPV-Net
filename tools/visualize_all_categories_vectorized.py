@@ -28,7 +28,7 @@ from polygonize_utils import flatten_to_xylist
 # File name stem -> category ID.
 NAME2ID = {
     "building": 0,
-    "road_bridge": 1,   # Rendered as road.
+    "road": 1,   # Rendered as road.
     "unvegetated": 2,
     "vegetation": 3,
     "water": 4,
