@@ -31,7 +31,7 @@ from tqdm import tqdm
 
 ID2NAME = {
     0: "building",
-    1: "road_bridge",
+    1: "road",
     2: "unvegetated",
     3: "vegetation",
     4: "water",
