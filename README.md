@@ -137,8 +137,8 @@ Semantic fidelity, vertex efficiency, and geometric accuracy:
 
 ```bash
 PYTHONPATH=./:$PYTHONPATH python scripts/evaluation.py \
-  --gt-file ./data/deventer_512/test/annotations/road_bridge.json \
-  --dt-file ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg/categories/road_bridge.json \
+  --gt-file ./data/deventer_512/test/annotations/road.json \
+  --dt-file ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg/categories/road.json \
   --eval-type ciou
 ```
 
@@ -148,13 +148,13 @@ Topological fidelity:
 
 ```bash
 python scripts/eval_apls.py \
-  --dt_file ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg/categories/road_bridge.json \
-  --gt_file ./data/deventer_512/test/annotations/road_bridge.json \
+  --dt_file ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg/categories/road.json \
+  --gt_file ./data/deventer_512/test/annotations/road.json \
   --image_folder ./data/deventer_512/test/images \
   --gt_folder ./data/deventer_512/test/network_graphs/road_bridge \
   --output_folder ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg/network_graphs/road_bridge
 
 python scripts/eval_betti_errors.py \
-  --gt_file ./data/deventer_512/test/annotations/road_bridge.json \
-  --dt_file ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg/categories/road_bridge.json
+  --gt_file ./data/deventer_512/test/annotations/road.json \
+  --dt_file ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg/categories/road.json
 ```
