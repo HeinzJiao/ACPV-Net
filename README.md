@@ -161,3 +161,24 @@ python scripts/eval_betti_errors.py \
   --gt_file ./data/deventer_512/test/annotations/road.json \
   --dt_file ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg/categories/road.json
 ```
+
+## BibTeX
+```bash
+@misc{jiao2026acpvnetallclasspolygonalvectorization,
+      title={ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery}, 
+      author={Weiqin Jiao and Hao Cheng and George Vosselman and Claudio Persello},
+      year={2026},
+      eprint={2603.16616},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2603.16616}, 
+}
+
+@inproceedings{jiao2026acpvnet,
+  title={ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery},
+  author={Jiao, Weiqin and Cheng, Hao and Vosselman, George and Persello, Claudio},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2026},
+  note={Accepted, camera-ready version pending}
+}
+```
