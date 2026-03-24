@@ -32,24 +32,18 @@ WHU Building   -> config-files/whu_building_vmamba-small_512_vh_m_ldm_kl4_b8.yam
 Shanghai       -> config-files/shanghai_building_vmamba-s_m_vh-ldm_kl4_b8.yaml
 ```
 
-This GitHub repository currently releases the codebase only. The Deventer-512 benchmark and model checkpoints will be released through Hugging Face.
-
-Deventer-512, the benchmark introduced in our paper, will be available at:
-
-```bash
-<Hugging Face dataset link>
-```
-
-Model checkpoints will be available at:
-
-```bash
-<Hugging Face model link>
-```
+This GitHub repository releases the codebase. The [Deventer-512 benchmark](https://huggingface.co/datasets/HeinzJiao/Deventer-512) and [model checkpoint](https://huggingface.co/HeinzJiao/deventer512_vmamba-s_m_vh-ldm_kl4_b8) are available through Hugging Face.
 
 After downloading the dataset, place the entire `deventer_512` folder under:
 
 ```bash
 data/deventer_512
+```
+
+After downloading the model checkpoint, place the entire `deventer512_vmamba-s_m_vh-ldm_kl4_b8` folder under:
+
+```bash
+outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8
 ```
 
 All commands below use experiments on `deventer_512` as the example.
