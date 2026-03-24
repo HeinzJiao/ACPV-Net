@@ -58,7 +58,7 @@ from collections import defaultdict
 NAME2ID = {
     "artificial_structure": 0,
     "building": 1,
-    "road_bridge": 2,
+    "road": 2,
     "unvegetated": 3,
     "vegetation": 4,
     "water": 5,
