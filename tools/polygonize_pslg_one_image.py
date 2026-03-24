@@ -855,34 +855,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    """
-    Usage (example):
-    python polygonize_pslg_one_image.py \
-      --seg_path xxx.npy \
-      --junction_json xxx.json \
-      --categories 1 2 4 \
-      --vss --dp_fix \
-      --vis_dir vis/
-
-    python ./tools/polygonize_pslg_one_image.py \
-      --seg_path ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/seg_mask_npy/True_Ortho_2064_4761_1_465.npy \
-      --junction_json ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/vertices_nms-3_th-0.5_topk-1k/True_Ortho_2064_4761_1_465.json \
-      --categories 0 1 2 3 4 \
-      --vss --dp_fix \
-      --vis_dir ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg_dp-2.5_angle_tol-10_corner_eps-2_replace_thresh-5_nms-3_th-0.5_topk-1k/True_Ortho_2064_4761_1_465_vis \
-      --vis_scale 2
-
-    
-    python ./tools/polygonize_pslg_one_image.py \
-      --seg_path ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/seg_mask_npy/True_Ortho_2064_4761_1_465.npy \
-      --junction_json ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/vertices_nms-3_th-0.5_topk-1k/True_Ortho_2064_4761_1_465.json \
-      --categories 0 1 2 3 4 \
-      --vis_dir ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg_dp-2.5_angle_tol-10_corner_eps-2_replace_thresh-5_nms-3_th-0.5_topk-1k/True_Ortho_2064_4761_1_465_no_vss_dp-4_vis \
-      --vis_scale 2 \
-      --dp_epsilon_dp 4
-
-    """
-
-
-
