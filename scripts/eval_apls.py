@@ -754,23 +754,3 @@ if __name__ == "__main__":
 
     # Step 1-3: build prediction graphs and run evaluation.
     main(args)
-
-    """
-    Usage:
-
-    python eval_apls.py \
-        --dt_file path/to/prediction.json \
-        --gt_file path/to/ground_truth.json \
-        --gt_folder path/to/gt_network_graphs \
-        --image_folder path/to/test_images \
-        --output_folder path/to/output_dir
-    """
-
-    """
-    python eval_apls.py \
-        --gt_file ./ACPV-Net/data/enschede_512/test/annotations/road.json \
-        --dt_file ../work3/HiSup-main/outputs/deventer_512_road_bridge_hrnet48/30e/zero_shot/deventer2enschede/predictions.json \
-        --gt_folder ./ACPV-Net/data/enschede_512/test/network_graphs \
-        --image_folder ./ACPV-Net/data/enschede_512/test/images \
-        --output_folder ../work3/HiSup-main/outputs/deventer_512_road_bridge_hrnet48/30e/zero_shot/deventer2enschede/
-    """
