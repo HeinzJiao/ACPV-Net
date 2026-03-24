@@ -549,7 +549,7 @@ def visualize(output_dir, jloc_pred, jloc_pred_aux, mask_pred, mask_pred_aux, gt
     id_to_color = {
         0: (255, 0, 0),  # artificial_structure
         1: (165, 42, 42),  # building
-        2: (255, 255, 0),  # road_bridge
+        2: (255, 255, 0),  # road
         3: (128, 128, 128),  # unvegetated
         4: (0, 255, 0),  # vegetation
         5: (0, 0, 255),  # water
