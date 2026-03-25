@@ -10,6 +10,7 @@
 <a href="https://huggingface.co/datasets/HeinzJiao/Deventer-512">
   <img src="https://img.shields.io/badge/Dataset-Deventer--512-orange?style=for-the-badge" alt="Dataset">
 </a>
+</div>
 
 ACPV-Net is a framework for All-Class Polygonal Vectorization (ACPV), which converts a single aerial image into a topologically consistent vector basemap. It combines semantically supervised conditioning for multi-class segmentation and latent vertex heatmap generation with PSLG-based topological reconstruction. This repository currently focuses on the `deventer512` setting.
 
