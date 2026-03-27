@@ -173,3 +173,5 @@ python scripts/eval_betti_errors.py \
   --gt_file ./data/deventer_512/test/annotations/road.json \
   --dt_file ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg/categories/road.json
 ```
+
+This repository benefits from the excellent open-source contributions of [HiSup](https://github.com/SarahwXU/HiSup), [Stable Diffusion](https://github.com/pesser/stable-diffusion), [LDPoly](https://github.com/HeinzJiao/LDPoly), and [VMamba](https://github.com/MzeroMiko/VMamba). We thank the authors for their great work.
