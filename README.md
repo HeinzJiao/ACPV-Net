@@ -1,14 +1,11 @@
 <div align="center">
 <h1>ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery</h1>
 
-<a href="https://heinzjiao.github.io/acpv-net-project-page/">
-  <img src="https://img.shields.io/badge/Project%20Page-ACPV--Net-blue?style=for-the-badge" alt="Project Page">
-</a>
 <a href="https://arxiv.org/abs/2603.16616">
-  <img src="https://img.shields.io/badge/arXiv-2603.16616-b31b1b?style=for-the-badge" alt="arXiv">
+  <img src="https://img.shields.io/badge/arXiv-2603.16616-b31b1b" alt="arXiv">
 </a>
 <a href="https://huggingface.co/datasets/HeinzJiao/Deventer-512">
-  <img src="https://img.shields.io/badge/Dataset-Deventer--512-orange?style=for-the-badge" alt="Dataset">
+  <img src="https://img.shields.io/badge/Hugging%20Face-Deventer--512-blue" alt="Hugging Face Benchmark">
 </a>
 </div>
 
@@ -59,6 +56,18 @@ outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8
 ```
 
 All commands below use experiments on `deventer_512` as the example.
+
+## Offline Data Preprocessing
+
+Before training the latent vertex heatmap models, preprocess the training split offline with the scripts in `data/`. The recommended workflow is:
+
+1. generate vertex heatmaps from vertex JSON files,
+2. apply local D4 augmentation,
+3. encode the augmented heatmaps into latent tensors.
+
+This repository expects precomputed latent heatmaps under `train/heatmap_augmented_latent_kl-4`, and preparing them offline avoids on-the-fly preprocessing during training and improves training speed.
+
+For the detailed preprocessing steps and script usage, see [data/README.md](data/README.md).
 
 ## Training
 
@@ -163,25 +172,4 @@ python scripts/eval_apls.py \
 python scripts/eval_betti_errors.py \
   --gt_file ./data/deventer_512/test/annotations/road.json \
   --dt_file ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg/categories/road.json
-```
-
-## BibTeX
-```bash
-@misc{jiao2026acpvnetallclasspolygonalvectorization,
-      title={ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery}, 
-      author={Weiqin Jiao and Hao Cheng and George Vosselman and Claudio Persello},
-      year={2026},
-      eprint={2603.16616},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2603.16616}, 
-}
-
-@inproceedings{jiao2026acpvnet,
-  title={ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery},
-  author={Jiao, Weiqin and Cheng, Hao and Vosselman, George and Persello, Claudio},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2026},
-  note={Accepted, camera-ready version pending}
-}
 ```
