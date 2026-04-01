@@ -1,0 +1,38 @@
+name: acpv-net
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - setuptools==80.9.0
+  - wheel
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu121
+      - torch==2.1.0
+      - torchvision==0.16.0
+      - torchaudio==2.1.0
+      - numpy==1.26.4
+      - scipy
+      - scikit-image
+      - matplotlib
+      - pillow
+      - pyyaml
+      - cython
+      - ninja
+      - packaging
+      - tqdm
+      - opencv-python==4.10.0.84
+      - imagecodecs
+      - yacs==0.1.8
+      - omegaconf
+      - einops
+      - pytorch-lightning<2.0
+      - pycocotools
+      - shapely
+      - descartes
+      - multiprocess
+      - timm
+      - triton==2.1.0
+      - fvcore
+      - iopath
+      - taming-transformers-rom1504
