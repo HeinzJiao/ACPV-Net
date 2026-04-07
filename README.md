@@ -1,15 +1,16 @@
 <div align="center">
-<h1>ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery</h1>
-
-<a href="https://arxiv.org/abs/2603.16616">
-  <img src="https://img.shields.io/badge/arXiv-2603.16616-b31b1b" alt="arXiv">
-</a>
-<a href="https://huggingface.co/datasets/HeinzJiao/Deventer-512">
-  <img src="https://img.shields.io/badge/Hugging%20Face-Deventer--512-blue" alt="Hugging Face Benchmark">
-</a>
+  <h1>ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery</h1>
+  <p><strong>ACPV-Net</strong> is a unified framework for all-class polygonal vectorization from a single aerial image, targeting topologically consistent vector basemap generation.</p>
+  <p>
+    <a href="https://arxiv.org/abs/2603.16616"><img src="https://img.shields.io/badge/arXiv-2603.16616-b31b1b" alt="arXiv"></a>
+    <a href="https://huggingface.co/datasets/HeinzJiao/Deventer-512"><img src="https://img.shields.io/badge/Hugging%20Face-Deventer--512-blue" alt="Hugging Face Dataset"></a>
+    <a href="https://huggingface.co/HeinzJiao/deventer512_vmamba-s_m_vh-ldm_kl4_b8"><img src="https://img.shields.io/badge/Hugging%20Face-Checkpoint-orange" alt="Hugging Face Checkpoint"></a>
+  </p>
 </div>
 
-ACPV-Net is a framework for All-Class Polygonal Vectorization (ACPV), which converts a single aerial image into a topologically consistent vector basemap. It combines semantically supervised conditioning for multi-class segmentation and latent vertex heatmap generation with PSLG-based topological reconstruction. This repository currently focuses on the `deventer512` setting.
+## Overview
+
+ACPV-Net combines semantically supervised multi-class segmentation, latent vertex heatmap generation, and PSLG-based topological reconstruction to convert aerial imagery into a topologically consistent vector basemap. This repository currently focuses on the `deventer512` setting.
 
 ## Environment Setup
 
@@ -31,7 +32,7 @@ python -c "import torch, timm, mmcv, yaml, cv2; print(torch.__version__, torch.v
 python -c "import selective_scan; print('selective_scan installed')"
 ```
 
-## Datasets and Configs
+## Datasets and Checkpoints
 
 This repository includes configurations for multiple datasets:
 
@@ -41,7 +42,7 @@ WHU Building   -> config-files/whu_building_vmamba-small_512_vh_m_ldm_kl4_b8.yam
 Shanghai       -> config-files/shanghai_building_vmamba-s_m_vh-ldm_kl4_b8.yaml
 ```
 
-This GitHub repository releases the codebase. The [Deventer-512 benchmark](https://huggingface.co/datasets/HeinzJiao/Deventer-512) and [model checkpoint](https://huggingface.co/HeinzJiao/deventer512_vmamba-s_m_vh-ldm_kl4_b8) are available through Hugging Face.
+The public release currently provides the codebase together with the [Deventer-512 benchmark](https://huggingface.co/datasets/HeinzJiao/Deventer-512) and the [Deventer-512 checkpoint](https://huggingface.co/HeinzJiao/deventer512_vmamba-s_m_vh-ldm_kl4_b8).
 
 After downloading the dataset, place the entire `deventer_512` folder under:
 
@@ -49,23 +50,23 @@ After downloading the dataset, place the entire `deventer_512` folder under:
 data/deventer_512
 ```
 
-After downloading the model checkpoint, place the entire `deventer512_vmamba-s_m_vh-ldm_kl4_b8` folder under:
+After downloading the checkpoint, place the entire `deventer512_vmamba-s_m_vh-ldm_kl4_b8` folder under:
 
 ```bash
 outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8
 ```
 
-All commands below use experiments on `deventer_512` as the example.
+All commands below use experiments on `deventer_512` as the running example.
 
 ## Offline Data Preprocessing
 
 Before training the latent vertex heatmap models, preprocess the training split offline with the scripts in `data/`. The recommended workflow is:
 
-1. generate vertex heatmaps from vertex JSON files,
-2. apply local D4 augmentation,
-3. encode the augmented heatmaps into latent tensors.
+1. Generate vertex heatmaps from vertex JSON files.
+2. Apply local D4 augmentation.
+3. Encode the augmented heatmaps into latent tensors.
 
-This repository expects precomputed latent heatmaps under `train/heatmap_augmented_latent_kl-4`, and preparing them offline avoids on-the-fly preprocessing during training and improves training speed.
+This repository expects precomputed latent heatmaps under `train/heatmap_augmented_latent_kl-4`. Preparing them offline avoids repeated on-the-fly preprocessing and improves training efficiency.
 
 For the detailed preprocessing steps and script usage, see [data/README.md](data/README.md).
 
@@ -173,5 +174,17 @@ python scripts/eval_betti_errors.py \
   --gt_file ./data/deventer_512/test/annotations/road.json \
   --dt_file ./outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8/ddim/poly_pslg/categories/road.json
 ```
+
+## Related Research
+
+This repository belongs to a broader research line on polygonal vectorization from aerial imagery and large-scale topographic map generation. If ACPV-Net is relevant to your work, you may also want to follow the companion papers below.
+
+| Paper | Venue | Focus | Resources |
+| --- | --- | --- | --- |
+| **LDPoly** | ISPRS 2025 | Latent diffusion for polygonal road outline extraction in topographic mapping. | [Paper](https://doi.org/10.1016/j.isprsjprs.2025.10.005) · [Code](https://github.com/HeinzJiao/LDPoly) · [Data and Weights](https://drive.google.com/drive/folders/1jsjuZxFdU9a8q-m0TNCj1MfX9rixTYJl?usp=sharing) · [Demo](https://colab.research.google.com/drive/1IW5AGfn3w3y9wSquYgXolGhcVwIWkoNd#scrollTo=eval_run) |
+| **RoIPoly** | ISPRS 2025 | RoI query-based building polygon extraction with logit-guided vertex interaction. | [Paper](https://doi.org/10.1016/j.isprsjprs.2025.03.030) · [Code](https://github.com/HeinzJiao/RoIPoly) |
+| **PolyR-CNN** | ISPRS 2024 | End-to-end polygonal building outline extraction with efficient RoI-based modeling. | [Paper](https://doi.org/10.1016/j.isprsjprs.2024.10.006) · [Code](https://github.com/HeinzJiao/PolyR-CNN) |
+
+## Acknowledgements
 
 This repository benefits from the excellent open-source contributions of [HiSup](https://github.com/SarahwXU/HiSup), [Stable Diffusion](https://github.com/pesser/stable-diffusion), [LDPoly](https://github.com/HeinzJiao/LDPoly), and [VMamba](https://github.com/MzeroMiko/VMamba). We thank the authors for their great work.
