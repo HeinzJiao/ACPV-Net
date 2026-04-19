@@ -62,11 +62,12 @@ All commands below use experiments on `deventer_512` as the running example.
 
 This project relies on the **pretrained AutoencoderKL (kl-f4)** from Stable Diffusion for latent encoding and decoding.
 
-The checkpoint is **not included in this repository** and must be downloaded separately.
+You can find the pretrained models in the  
+[Stable Diffusion Model Zoo – Pretrained Autoencoding Models](https://github.com/pesser/stable-diffusion).
 
-You can download it from the [Stable Diffusion Model Zoo – Pretrained Autoencoding Models](https://github.com/pesser/stable-diffusion).
+Please download the **[kl-f4 VAE (f = 4, KL)](https://ommer-lab.com/files/latent-diffusion/kl-f4.zip)**.
 
-After downloading, place the checkpoint at:
+After downloading, extract the checkpoint and place it at:
 
 ```bash
 models/first_stage_models/kl-f4/model.ckpt
