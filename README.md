@@ -58,6 +58,20 @@ outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8
 
 All commands below use experiments on `deventer_512` as the running example.
 
+## Pretrained Autoencoder (kl-f4)
+
+This project relies on the **pretrained AutoencoderKL (kl-f4)** from Stable Diffusion for latent encoding and decoding.
+
+The checkpoint is **not included in this repository** and must be downloaded separately.
+
+You can download it from the [Stable Diffusion Model Zoo – Pretrained Autoencoding Models](https://github.com/pesser/stable-diffusion).
+
+After downloading, place the checkpoint at:
+
+```bash
+models/first_stage_models/kl-f4/model.ckpt
+```
+
 ## Offline Data Preprocessing
 
 Before training the latent vertex heatmap models, preprocess the training split offline with the scripts in `data/`. The recommended workflow is:
