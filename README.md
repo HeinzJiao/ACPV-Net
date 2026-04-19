@@ -69,7 +69,7 @@ This project depends on pretrained models that are **not included** in this repo
 This project uses the **Stable Diffusion AutoencoderKL (kl-f4)** for latent encoding and decoding.
 
 You can find the pretrained models in the  
-[Stable Diffusion Model Zoo – Pretrained Autoencoding Models](https://github.com/pesser/stable-diffusion).
+[Stable Diffusion Model Zoo](https://github.com/pesser/stable-diffusion).
 
 After downloading the **[kl-f4 VAE (f = 4, KL)](https://ommer-lab.com/files/latent-diffusion/kl-f4.zip)**, place it at:
 
