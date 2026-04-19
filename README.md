@@ -62,8 +62,6 @@ All commands below use experiments on `deventer_512` as the running example.
 
 This project depends on pretrained models that are **not included** in this repository.
 
----
-
 ### 1. Autoencoder (kl-f4)
 
 This project uses the **Stable Diffusion AutoencoderKL (kl-f4)** for latent encoding and decoding.
@@ -76,8 +74,6 @@ After downloading the **[kl-f4 VAE (f = 4, KL)](https://ommer-lab.com/files/late
 ```bash
 models/first_stage_models/kl-f4/model.ckpt
 ```
-
----
 
 ### 2. VMamba Backbone (VSSM-Small)
 
