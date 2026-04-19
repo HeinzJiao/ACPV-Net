@@ -1,10 +1,21 @@
 <div align="center">
   <h1>ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery</h1>
+
   <p><strong>ACPV-Net</strong> is a unified framework for all-class polygonal vectorization from a single aerial image, targeting topologically consistent vector basemap generation.</p>
+
   <p>
-    <a href="https://arxiv.org/abs/2603.16616"><img src="https://img.shields.io/badge/arXiv-2603.16616-b31b1b" alt="arXiv"></a>
-    <a href="https://huggingface.co/datasets/HeinzJiao/Deventer-512"><img src="https://img.shields.io/badge/Hugging%20Face-Deventer--512-blue" alt="Hugging Face Dataset"></a>
-    <a href="https://huggingface.co/HeinzJiao/deventer512_vmamba-s_m_vh-ldm_kl4_b8"><img src="https://img.shields.io/badge/Hugging%20Face-Checkpoint-orange" alt="Hugging Face Checkpoint"></a>
+    <a href="https://heinzjiao.github.io/acpv-net-project-page/">
+      <img src="https://img.shields.io/badge/Project%20Page-ACPV--Net-green" alt="Project Page">
+    </a>
+    <a href="https://arxiv.org/abs/2603.16616">
+      <img src="https://img.shields.io/badge/arXiv-2603.16616-b31b1b" alt="arXiv">
+    </a>
+    <a href="https://huggingface.co/datasets/HeinzJiao/Deventer-512">
+      <img src="https://img.shields.io/badge/Hugging%20Face-Deventer--512-blue" alt="Hugging Face Dataset">
+    </a>
+    <a href="https://huggingface.co/HeinzJiao/deventer512_vmamba-s_m_vh-ldm_kl4_b8">
+      <img src="https://img.shields.io/badge/Hugging%20Face-Checkpoint-orange" alt="Hugging Face Checkpoint">
+    </a>
   </p>
 </div>
 
