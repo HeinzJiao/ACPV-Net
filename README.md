@@ -89,7 +89,7 @@ After downloading the corresponding [checkpoint](https://github.com/MzeroMiko/VM
 pretrained/vssm_small_0229_ckpt_epoch_222.pth
 ```
 
-This version is used in our experiments for efficiency considerations. Other stronger VMamba variants can also be used as backbones if needed.
+This version is used in our experiments for efficiency considerations. Other stronger variants can also be used as backbones if needed.
 
 ## Offline Data Preprocessing
 
