@@ -71,7 +71,7 @@ This project uses the **Stable Diffusion AutoencoderKL (kl-f4)** for latent enco
 You can find the pretrained models in the  
 [Stable Diffusion Model Zoo – Pretrained Autoencoding Models](https://github.com/pesser/stable-diffusion).
 
-Please download the **[kl-f4 VAE (f = 4, KL)](https://ommer-lab.com/files/latent-diffusion/kl-f4.zip)** and place it at:
+After downloading the **[kl-f4 VAE (f = 4, KL)](https://ommer-lab.com/files/latent-diffusion/kl-f4.zip)**, place it at:
 
 ```bash
 models/first_stage_models/kl-f4/model.ckpt
@@ -83,7 +83,7 @@ models/first_stage_models/kl-f4/model.ckpt
 
 We use the VMamba-S (VSSM-Small, s2l15) backbone pretrained on ImageNet-1K from [VMamba](https://github.com/MzeroMiko/VMamba)
 
-Download the corresponding checkpoint and place it at:
+After downloading the corresponding [checkpoint](https://github.com/MzeroMiko/VMamba/releases/download/%23v2cls/vssm_small_0229_ckpt_epoch_222.pth), place it at:
 
 ```bash
 pretrained/vssm_small_0229_ckpt_epoch_222.pth
