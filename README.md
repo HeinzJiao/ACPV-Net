@@ -58,20 +58,38 @@ outputs/deventer512_vmamba-s_m_vh-ldm_kl4_b8
 
 All commands below use experiments on `deventer_512` as the running example.
 
-## Pretrained Autoencoder (kl-f4)
+## Required Pretrained Weights
 
-This project relies on the **pretrained AutoencoderKL (kl-f4)** from Stable Diffusion for latent encoding and decoding.
+This project depends on pretrained models that are **not included** in this repository.
+
+---
+
+### 1. Autoencoder (kl-f4)
+
+This project uses the **Stable Diffusion AutoencoderKL (kl-f4)** for latent encoding and decoding.
 
 You can find the pretrained models in the  
 [Stable Diffusion Model Zoo – Pretrained Autoencoding Models](https://github.com/pesser/stable-diffusion).
 
-Please download the **[kl-f4 VAE (f = 4, KL)](https://ommer-lab.com/files/latent-diffusion/kl-f4.zip)**.
-
-After downloading, extract the checkpoint and place it at:
+Please download the **[kl-f4 VAE (f = 4, KL)](https://ommer-lab.com/files/latent-diffusion/kl-f4.zip)** and place it at:
 
 ```bash
 models/first_stage_models/kl-f4/model.ckpt
 ```
+
+---
+
+### 2. VMamba Backbone (VSSM-Small)
+
+We use the VMamba-S (VSSM-Small, s2l15) backbone pretrained on ImageNet-1K from [VMamba](https://github.com/MzeroMiko/VMamba)
+
+Download the corresponding checkpoint and place it at:
+
+```bash
+pretrained/vssm_small_0229_ckpt_epoch_222.pth
+```
+
+This version is used in our experiments for efficiency considerations. Other stronger VMamba variants can also be used as backbones if needed.
 
 ## Offline Data Preprocessing
 
