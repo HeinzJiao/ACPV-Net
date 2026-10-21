@@ -36,11 +36,15 @@ pip install --no-build-isolation .
 cd ../..
 ```
 
+<sub>For evaluation, install the [Boundary IoU API](https://github.com/bowenc0221/boundary-iou-api) (use `pip install -e .` in its cloned repository if needed), and use `shapely==1.8.2` for angle evaluation (`pip install shapely==1.8.2`).</sub>
+
+<sub>GPU compatibility: The custom CUDA kernels were tested on NVIDIA RTX A4000 and L40S; compilation on Blackwell GPUs may fail with the provided CUDA/PyTorch environment.</sub>
+
 ## Quick Check
 
 ```bash
 python -c "import torch, timm, mmcv, yaml, cv2; print(torch.__version__, torch.version.cuda)"
-python -c "import selective_scan; print('selective_scan installed')"
+python -c "import selective_scan_cuda_oflex; print('selective_scan installed')"
 ```
 
 ## Datasets and Checkpoints
@@ -148,6 +152,8 @@ PYTHONPATH=./:$PYTHONPATH python latent_decoder_accelerated.py \
   --batch-size 8 \
   --num-workers 8
 ```
+
+<sub>If latent decoding runs out of GPU memory, use `--batch-size 1 --num-workers 2` (tested on an NVIDIA RTX A4000, 16 GB).</sub>
 
 3. Extract vertices from reconstructed heatmaps:
 
