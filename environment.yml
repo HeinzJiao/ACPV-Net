@@ -28,7 +28,7 @@ dependencies:
       - einops
       - pytorch-lightning<2.0
       - pycocotools
-      - shapely
+      - shapely==1.8.2
       - descartes
       - multiprocess
       - timm
