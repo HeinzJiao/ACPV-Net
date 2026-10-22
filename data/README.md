@@ -20,13 +20,14 @@ data/<dataset_name>/train/heatmap_augmented_latent_kl-4/<augmentation>/z/*.pt
 
 ## Example Commands
 
-1. Generate vertex heatmaps:
+1. Generate vertex heatmaps directly from the per-class COCO polygon annotations, without requiring intermediate vertex JSON files:
 
 ```bash
-python data/generate_vertex_heatmaps.py \
-  --json_dir ./data/<dataset_name>/train/vertices \
-  --save_dir ./data/<dataset_name>/train/vertex_heatmaps_sigma-3_augmented/rot0 \
-  --sigma 3
+python data/generate_coco_vertex_heatmaps.py \
+  --annotation-path ./data/deventer_512/train/annotations \
+  --output-dir ./data/deventer_512/train/vertex_heatmaps_sigma-3_augmented/rot0 \
+  --sigma 3 \
+  --dtype float32
 ```
 
 2. Apply D4 augmentation:
