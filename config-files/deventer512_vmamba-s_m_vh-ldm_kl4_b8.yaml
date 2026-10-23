@@ -43,7 +43,6 @@ DATASETS:
   FACTORY: 'LatentVertexHeatmapTrainDataset'
   NUM_CLASSES: 5
   AUGMENTATIONS: [‘flip_h', 'flip_v']
-  # AUGMENTATIONS: ['hflip', 'vflip', 'rrotate']
 
 MODEL:
   NAME: "VMamba"
