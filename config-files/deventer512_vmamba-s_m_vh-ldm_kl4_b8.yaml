@@ -42,7 +42,7 @@ DATASETS:
   TEST: ("deventer_512_test_with_latent_vertex_heatmap",)
   FACTORY: 'LatentVertexHeatmapTrainDataset'
   NUM_CLASSES: 5
-  AUGMENTATIONS: ['hflip', 'vflip']
+  AUGMENTATIONS: [‘flip_h', 'flip_v']
   # AUGMENTATIONS: ['hflip', 'vflip', 'rrotate']
 
 MODEL:
